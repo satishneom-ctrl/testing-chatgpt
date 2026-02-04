@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Overview - NIFTY & BANK NIFTY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="overview-card">
+        <div class="overview-header">
+          <div>
+            <p class="eyebrow">Market Overview</p>
+            <h1>NIFTY 50 &amp; BANK NIFTY Snapshot</h1>
+          </div>
+          <div class="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <div>
+              <p class="status-label">Market Status</p>
+              <p class="status-value" id="market-status">Open</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticker-grid">
+          <div class="ticker" role="group" aria-label="Nifty 50">
+            <div>
+              <p class="ticker-title">NIFTY 50</p>
+              <p class="ticker-price" id="nifty-price">22,485.60</p>
+            </div>
+            <div class="ticker-change positive" id="nifty-change">+0.82%</div>
+          </div>
+          <div class="ticker" role="group" aria-label="Bank Nifty">
+            <div>
+              <p class="ticker-title">BANK NIFTY</p>
+              <p class="ticker-price" id="banknifty-price">48,910.30</p>
+            </div>
+            <div class="ticker-change negative" id="banknifty-change">-0.24%</div>
+          </div>
+          <div class="ticker" role="group" aria-label="India VIX">
+            <div>
+              <p class="ticker-title">INDIA VIX</p>
+              <p class="ticker-price" id="vix-price">13.28</p>
+            </div>
+            <div class="ticker-change neutral" id="vix-change">+0.05</div>
+          </div>
+        </div>
+
+        <div class="meta-row">
+          <div>
+            <p class="meta-label">Last update</p>
+            <p class="meta-value" id="last-update">Just now</p>
+          </div>
+          <div>
+            <p class="meta-label">Auto refresh</p>
+            <div class="refresh">
+              <span class="pulse" aria-hidden="true"></span>
+              <p class="meta-value">Every 60 seconds</p>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
