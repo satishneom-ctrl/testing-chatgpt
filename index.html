@@ -1,10 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My First App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stunning To-Do List</title>
+    <style>
+      :root {
+        --bg-1: #0b1020;
+        --bg-2: #111a33;
+        --card: rgba(255, 255, 255, 0.08);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --text: #eaf0ff;
+        --muted: #9fb0d6;
+        --primary: #7c5cff;
+        --primary-2: #48d6ff;
+        --success: #25d69b;
+        --danger: #ff5e87;
+        --shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 15% 20%, #223066 0%, transparent 30%),
+          radial-gradient(circle at 85% 10%, #2e1c72 0%, transparent 25%),
+          linear-gradient(140deg, var(--bg-1), var(--bg-2));
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .app {
+        width: min(820px, 100%);
+        backdrop-filter: blur(12px);
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .header {
+        padding: 28px 28px 20px;
+        background: linear-gradient(100deg, rgba(124, 92, 255, 0.25), rgba(72, 214, 255, 0.15));
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .title {
+        margin: 0;
+        font-size: clamp(1.6rem, 3vw, 2.3rem);
+        letter-spacing: 0.3px;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .controls {
+        padding: 20px 28px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .input {
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        padding: 14px 16px;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text);
+        outline: none;
+      }
+
+      .input:focus {
+        border-color: var(--primary-2);
+        box-shadow: 0 0 0 3px rgba(72, 214, 255, 0.15);
+      }
+
+      .btn {
+        border: none;
+        border-radius: 14px;
+        padding: 0 20px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: transform 0.15s ease, filter 0.2s ease;
+        background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      }
+
+      .btn:hover {
+        filter: brightness(1.08);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .meta {
+        padding: 0 28px 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .list {
+        list-style: none;
+        margin: 0;
+        padding: 8px 18px 22px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .check {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--success);
+        cursor: pointer;
+      }
+
+      .text {
+        word-break: break-word;
+      }
+
+      .done .text {
+        color: #b6c5ea;
+        text-decoration: line-through;
+        opacity: 0.85;
+      }
+
+      .delete {
+        border: 1px solid rgba(255, 94, 135, 0.45);
+        color: #ffd9e4;
+        background: rgba(255, 94, 135, 0.12);
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 7px 10px;
+        font-size: 0.82rem;
+      }
+
+      .empty {
+        padding: 10px 28px 24px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      @media (max-width: 640px) {
+        .controls {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          height: 46px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello 👋</h1>
-    <p>This is my first app.</p>
+    <main class="app">
+      <header class="header">
+        <h1 class="title">✨ Stunning To-Do List</h1>
+        <p class="subtitle">Plan smart, stay focused, and finish strong.</p>
+      </header>
+
+      <section class="controls">
+        <input id="todoInput" class="input" type="text" placeholder="Add a new task..." maxlength="140" />
+        <button id="addBtn" class="btn">Add Task</button>
+      </section>
+
+      <p id="meta" class="meta">0 total • 0 completed</p>
+      <ul id="todoList" class="list"></ul>
+      <p id="empty" class="empty">No tasks yet — add your first goal above.</p>
+    </main>
+
+    <script>
+      const input = document.getElementById('todoInput');
+      const addBtn = document.getElementById('addBtn');
+      const list = document.getElementById('todoList');
+      const empty = document.getElementById('empty');
+      const meta = document.getElementById('meta');
+
+      const state = [
+        { text: 'Review option-chain signals', done: false },
+        { text: 'Prepare opening-session checklist', done: true }
+      ];
+
+      function updateMeta() {
+        const total = state.length;
+        const completed = state.filter((task) => task.done).length;
+        meta.textContent = `${total} total • ${completed} completed`;
+        empty.style.display = total ? 'none' : 'block';
+      }
+
+      function render() {
+        list.innerHTML = '';
+
+        state.forEach((task, index) => {
+          const li = document.createElement('li');
+          li.className = `item ${task.done ? 'done' : ''}`;
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.className = 'check';
+          checkbox.checked = task.done;
+          checkbox.addEventListener('change', () => {
+            state[index].done = checkbox.checked;
+            render();
+          });
+
+          const span = document.createElement('span');
+          span.className = 'text';
+          span.textContent = task.text;
+
+          const del = document.createElement('button');
+          del.className = 'delete';
+          del.textContent = 'Delete';
+          del.addEventListener('click', () => {
+            state.splice(index, 1);
+            render();
+          });
+
+          li.append(checkbox, span, del);
+          list.append(li);
+        });
+
+        updateMeta();
+      }
+
+      function addTask() {
+        const value = input.value.trim();
+        if (!value) return;
+
+        state.unshift({ text: value, done: false });
+        input.value = '';
+        render();
+        input.focus();
+      }
+
+      addBtn.addEventListener('click', addTask);
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') addTask();
+      });
+
+      render();
+    </script>
   </body>
 </html>
