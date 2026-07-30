@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My First App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CareerOS is a premium AI Career Operating System for GCC professionals." />
+    <title>CareerOS — AI Career Operating System for GCC Professionals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Hello 👋</h1>
-    <p>This is my first app.</p>
+    <div class="site-shell">
+      <header class="nav" data-nav>
+        <a class="brand" href="#top" aria-label="CareerOS home"><span class="brand-mark">C</span><span>CareerOS</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span></button>
+        <nav class="nav-links" data-nav-links>
+          <a href="#products">Products</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#resources">Resources</a>
+        </nav>
+        <div class="nav-actions"><a href="#dashboard">Login</a><a class="button small" href="#pricing">Get Started</a></div>
+      </header>
+
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Built for Saudi Arabia, UAE, Qatar, Kuwait, Bahrain & Oman</p>
+            <h1>The AI Career Operating System for Gulf professionals.</h1>
+            <p class="hero-text">CareerOS turns engineering experience, GCC project history, certifications, and target roles into a living career profile, tailored resumes, ATS insights, and interview readiness.</p>
+            <div class="hero-actions"><a class="button" href="#pricing">Create your profile</a><a class="button ghost" href="#dashboard">View dashboard</a></div>
+            <div class="stats" aria-label="CareerOS platform metrics">
+              <div><strong data-counter="93">0</strong><span>% profile completion target</span></div>
+              <div><strong data-counter="6">0</strong><span>GCC markets mapped</span></div>
+              <div><strong data-counter="12">0</strong><span>career tools unified</span></div>
+            </div>
+          </div>
+          <div class="hero-visual reveal">
+            <div class="orbit-card score-card"><span>Career Score</span><strong>87</strong><small>Ready for Senior QA/QC roles</small></div>
+            <div class="profile-card glass">
+              <div class="avatar">MA</div><div><h3>Mohammed Al-Farsi</h3><p>Mechanical Engineer · Oil & Gas · Jubail</p></div>
+              <div class="progress"><span style="width: 86%"></span></div>
+              <ul><li>ARAMCO project language added</li><li>NEOM construction keywords matched</li><li>Interview pack generated</li></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="trust section reveal">
+          <p>Trusted by ambitious GCC professionals targeting enterprise employers</p>
+          <div class="logo-row"><span>Aramco</span><span>ADNOC</span><span>QatarEnergy</span><span>Saudi Electricity</span><span>DEWA</span><span>NEOM</span></div>
+          <div class="country-row"><span>🇸🇦 Saudi Arabia</span><span>🇦🇪 UAE</span><span>🇶🇦 Qatar</span><span>🇰🇼 Kuwait</span><span>🇧🇭 Bahrain</span><span>🇴🇲 Oman</span></div>
+        </section>
+
+        <section class="section" id="products">
+          <div class="section-heading reveal"><p class="eyebrow">Product suite</p><h2>One operating system for every career move.</h2><p>From your master profile to interview reports, every module understands Gulf hiring expectations.</p></div>
+          <div class="feature-grid">
+            <article class="feature-card reveal">🧭<h3>Master Career Profile</h3><p>Centralize roles, GCC projects, skills, certifications, visas, and target employers.</p></article>
+            <article class="feature-card reveal">📄<h3>Resume Builder</h3><p>Create premium resumes for engineering, construction, oil & gas, and management roles.</p></article>
+            <article class="feature-card reveal">✨<h3>Resume Optimization</h3><p>Rewrite achievements with measurable impact and market-specific language.</p></article>
+            <article class="feature-card reveal">🎯<h3>ATS Analysis</h3><p>Compare job descriptions against your profile and close keyword gaps.</p></article>
+            <article class="feature-card reveal">✉️<h3>Cover Letter</h3><p>Generate tailored letters for project, plant, and enterprise employers.</p></article>
+            <article class="feature-card reveal">🎙️<h3>Mock Interview</h3><p>Practice behavioral and technical questions with AI feedback reports.</p></article>
+          </div>
+        </section>
+
+        <section class="why section" id="features">
+          <div class="section-heading reveal"><p class="eyebrow">Why CareerOS</p><h2>Beyond resume builders.</h2></div>
+          <div class="compare-grid reveal"><div class="compare muted"><h3>Traditional tools</h3><p>Static templates, generic writing, weak GCC context, fragmented preparation.</p></div><div class="compare premium"><h3>CareerOS</h3><p>A living career intelligence layer with local market context, role matching, ATS scoring, and interview systems.</p></div></div>
+        </section>
+
+        <section class="workflow section reveal">
+          <div class="section-heading"><p class="eyebrow">Workflow</p><h2>From profile to hired.</h2></div>
+          <div class="timeline"><span>Create Profile</span><span>Generate Resume</span><span>Optimize</span><span>ATS Analysis</span><span>Interview Prep</span><span>Mock Interview</span><span>Get Hired</span></div>
+        </section>
+
+        <section class="mockups section" id="dashboard">
+          <div class="section-heading reveal"><p class="eyebrow">SaaS dashboard</p><h2>A premium workspace for your career pipeline.</h2></div>
+          <div class="dashboard-shell reveal">
+            <aside><b>CareerOS</b><a>Dashboard</a><a>Master Profile</a><a>Resume Library</a><a>ATS Analysis</a><a>Mock Interview</a><a>Settings</a></aside>
+            <div class="dash-main"><div class="dash-top"><input aria-label="Search" placeholder="Search resumes, roles, reports..." /><span>🔔</span><span class="avatar small-avatar">SA</span></div><div class="dash-grid"><div class="metric"><span>Career Score</span><strong>87</strong></div><div class="metric"><span>AI Credits</span><strong>420</strong></div><div class="metric"><span>Applications</span><strong>18</strong></div><div class="metric"><span>Profile</span><strong>86%</strong></div></div><div class="activity"><h3>Recent activity</h3><p>Optimized Senior Project Engineer resume for Riyadh metro contractor.</p><p>Generated interview prep guide for QA/QC Manager role in Abu Dhabi.</p></div></div>
+          </div>
+        </section>
+
+        <section class="testimonials section reveal"><div class="section-heading"><p class="eyebrow">Professionals</p><h2>Designed for serious GCC careers.</h2></div><div class="testimonial-grid"><blockquote>“CareerOS translated my shutdown maintenance experience into clear achievements for Saudi employers.”<cite>— Plant Engineer, Dammam</cite></blockquote><blockquote>“The ATS analysis felt built for construction and EPC roles, not generic office jobs.”<cite>— Civil Engineer, Doha</cite></blockquote><blockquote>“Mock interviews helped me explain QA/QC compliance with confidence.”<cite>— QA/QC Lead, Abu Dhabi</cite></blockquote></div></section>
+
+        <section class="pricing section" id="pricing"><div class="section-heading reveal"><p class="eyebrow">Pricing</p><h2>Start free. Upgrade when you are ready.</h2></div><div class="pricing-grid"><article><h3>Free</h3><strong>$0</strong><p>Profile, one resume, basic ATS scan.</p></article><article class="featured"><h3>Professional</h3><strong>$19</strong><p>Unlimited resumes, optimization, cover letters.</p></article><article><h3>Premium</h3><strong>$49</strong><p>Mock interviews, reports, career score coaching.</p></article><article><h3>Enterprise</h3><strong>Custom</strong><p>Career programs for teams, universities, and training centers.</p></article></div></section>
+
+        <section class="faq section" id="resources"><div class="section-heading reveal"><p class="eyebrow">FAQ</p><h2>Questions before you begin?</h2></div><details open><summary>Is CareerOS only for engineers?</summary><p>It starts with engineering-heavy Gulf careers and expands across professional categories.</p></details><details><summary>Does it replace LinkedIn?</summary><p>No. It creates better career assets and intelligence you can use across LinkedIn, job boards, and direct applications.</p></details><details><summary>Can fresh graduates use it?</summary><p>Yes. It helps turn internships, academic projects, and certifications into credible career narratives.</p></details></section>
+      </main>
+
+      <footer><div><b>CareerOS</b><p>AI Career Operating System for Gulf professionals.</p></div><a href="#top">Back to top ↑</a></footer>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
